@@ -14,7 +14,7 @@ def main():
     print(generatePassword(amountOfChars, optionOfSpecialChars))
 
     
-def generatePassword(length = None, yes_or_no = None) -> str:  #yes or no
+def generatePassword(length = None, yes_or_no = None) -> str:
     # type checking
     given = False
     
