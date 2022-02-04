@@ -51,7 +51,7 @@ def generatePassword(length = None, specialChars = None) -> str:
     return password
         
 
-def init(): # adds all of the values to the lists
+def init(): # adds all of the values to the variables
     global upper
     for x in lower:
         upper += x.upper()
