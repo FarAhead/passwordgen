@@ -1,9 +1,9 @@
 from random import randint
 
-lower = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-upper = []
+lower = "abcdefghijklmnopqrstuvwxyz"
+upper = str()
 nums = []
-specialChars = ['-', '$', '&', '#']
+specialChars = "-$&#"
 
 def main():
     init()
@@ -14,11 +14,11 @@ def main():
     print(generatePassword(amountOfChars, optionOfSpecialChars))
 
     
-def generatePassword(length = None, yes_or_no = None) -> str:
+def generatePassword(length = None, specialChars = None) -> str:
     # type checking
     given = False
     
-    if yes_or_no.lower() == "y" or yes_or_no.lower() == "yes":
+    if specialChars.lower() == "y" or specialChars.lower() == "yes":
         given = True
     
     if length == None:
@@ -34,7 +34,7 @@ def generatePassword(length = None, yes_or_no = None) -> str:
     for l in range(length):
         rng = randint(0,8)
         
-        if rng == range(1,5): #num
+        if rng == 1 or rng == 2: #num
             password += str(chooseOutOfArray(nums))
         
         elif rng == 1 and given == True:
@@ -52,8 +52,9 @@ def generatePassword(length = None, yes_or_no = None) -> str:
         
 
 def init(): # adds all of the values to the lists
-    for x in range(len(lower)):
-        upper.append(lower[x].upper())  
+    global upper
+    for x in lower:
+        upper += x.upper()
     for l in range(10):
         nums.append(l)
 
